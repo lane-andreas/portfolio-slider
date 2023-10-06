@@ -1,15 +1,24 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   var cursor = document.createElement("div");
-//   cursor.id = "mouse";
-//   document.body.appendChild(cursor);
+document.addEventListener("DOMContentLoaded", function () {
+  var cursor = document.querySelector("#mouse");
 
-//   document.addEventListener("mousemove", function (e) {
-//     var x = e.clientX;
-//     var y = e.clientY;
-//     cursor.style.left = x + "px";
-//     cursor.style.top = y + "px";
-//   });
-// });
+  document.addEventListener("mousemove", function (e) {
+    var x = e.clientX;
+    var y = e.clientY;
+    cursor.style.left = x + "px";
+    cursor.style.top = y + "px";
+
+    var links = document.querySelectorAll("a, button"); // Select all anchor elements
+    links.forEach(function (link) {
+      link.addEventListener("mouseenter", function () {
+        cursor.classList.add("hovered"); // Add a class when hovering over a link
+      });
+
+      link.addEventListener("mouseleave", function () {
+        cursor.classList.remove("hovered"); // Remove the class when leaving the link
+      });
+    });
+  });
+});
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   var blur = document.querySelector("#mouse-blur");
