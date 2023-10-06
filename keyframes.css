@@ -1,0 +1,31 @@
+@keyframes mouse-blur {
+  0% {
+    rotate: 0;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes bar {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  25% {
+    translate: 50% 0;
+  }
+  75% {
+    translate: -50% 0;
+  }
+}
+
+@keyframes loader {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    pointer-events: none;
+    opacity: 0;
+  }
+}
