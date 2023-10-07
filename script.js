@@ -58,6 +58,7 @@ function createCustomCursorEffect(selector) {
 
 createCustomCursorEffect("#clip-header");
 createCustomCursorEffect("#clip-nav");
+createCustomCursorEffect("#clip-about");
 
 function menuToggle() {
   var links = document.querySelectorAll("nav a");
