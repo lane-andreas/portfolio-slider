@@ -18,7 +18,7 @@
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
   </head>
-  <body>
+  <body ontouchstart="">
     <div id="mouse"></div>
     <div id="loader" aria-hidden="true">
       <img src="imgs/logo.png" alt="" />
@@ -28,6 +28,9 @@
     <nav id="clip-nav">
       <img src="imgs/dark-logo.png" alt="" />
       <div class="nav-links">
+        <button id="menu-button" onclick="menuToggle()">
+          <iconify-icon icon="bi:list-nested"></iconify-icon>
+        </button>
         <a href="">about</a><a href="">clients</a><a href="">projects</a
         ><a href="">contact</a>
       </div>
@@ -35,6 +38,9 @@
     <nav>
       <img src="imgs/logo.png" alt="" />
       <div class="nav-links">
+        <button id="menu-button" onclick="menuToggle()">
+          <iconify-icon icon="bi:list-nested"></iconify-icon>
+        </button>
         <a href="">about</a><a href="">clients</a><a href="">projects</a
         ><a href="">contact</a>
       </div>
@@ -52,5 +58,6 @@
       <div><button>download cv</button><button>let's talk</button></div>
     </header>
     <script src="script.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
   </body>
 </html>

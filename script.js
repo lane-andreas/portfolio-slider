@@ -7,49 +7,18 @@ document.addEventListener("DOMContentLoaded", function () {
     cursor.style.left = x + "px";
     cursor.style.top = y + "px";
 
-    var links = document.querySelectorAll("a, button"); // Select all anchor elements
+    var links = document.querySelectorAll("a, button");
     links.forEach(function (link) {
       link.addEventListener("mouseenter", function () {
-        cursor.classList.add("hovered"); // Add a class when hovering over a link
+        cursor.classList.add("hovered");
       });
 
       link.addEventListener("mouseleave", function () {
-        cursor.classList.remove("hovered"); // Remove the class when leaving the link
+        cursor.classList.remove("hovered");
       });
     });
   });
 });
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   var blur = document.querySelector("#mouse-blur");
-
-//   var mouseX = 0;
-//   var mouseY = 0;
-//   var cursorX = 0;
-//   var cursorY = 0;
-
-//   function updateCursor() {
-//     var dx = mouseX - cursorX;
-//     var dy = mouseY - cursorY;
-
-//     var lagFactor = 0.005;
-
-//     cursorX += dx * lagFactor;
-//     cursorY += dy * lagFactor;
-
-//     blur.style.left = cursorX + "px";
-//     blur.style.top = cursorY + "px";
-
-//     requestAnimationFrame(updateCursor);
-//   }
-
-//   document.addEventListener("mousemove", function (e) {
-//     mouseX = e.clientX;
-//     mouseY = e.clientY;
-//   });
-
-//   updateCursor();
-// });
 
 function createCustomCursorEffect(selector) {
   var clip = document.querySelector(selector);
@@ -87,35 +56,16 @@ function createCustomCursorEffect(selector) {
   updateCursor();
 }
 
-// Usage: Call the function with the CSS selector of the element you want to apply the effect to.
 createCustomCursorEffect("#clip-header");
 createCustomCursorEffect("#clip-nav");
-// document.addEventListener("DOMContentLoaded", function () {
-//   var clip = document.querySelector("#clip");
 
-//   var mouseX = 0;
-//   var mouseY = 0;
-//   var cursorX = 0;
-//   var cursorY = 0;
-
-//   function updateCursor() {
-//     var dx = mouseX - cursorX;
-//     var dy = mouseY - cursorY;
-
-//     var lagFactor = 1;
-
-//     cursorX += dx * lagFactor;
-//     cursorY += dy * lagFactor;
-
-//     clip.style.clipPath =
-//       "circle(15vw at " + cursorX + "px" + " " + cursorY + "px" + ")";
-//     requestAnimationFrame(updateCursor);
-//   }
-
-//   document.addEventListener("mousemove", function (e) {
-//     mouseX = e.clientX;
-//     mouseY = e.clientY;
-//   });
-
-//   updateCursor();
-// });
+function menuToggle() {
+  var links = document.querySelectorAll("nav a");
+  links.forEach(function (link) {
+    if (link.classList.contains("menu-open")) {
+      link.classList.remove("menu-open");
+    } else {
+      link.classList.add("menu-open");
+    }
+  });
+}
