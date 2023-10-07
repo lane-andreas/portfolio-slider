@@ -181,13 +181,11 @@ nav {
 }
 
 #clip-header {
-  background: var(--dark);
   z-index: 51;
   position: absolute;
   background-color: var(--dark);
   & h1,
-  p,
-  lead {
+  p {
     color: var(--light);
   }
 }
@@ -214,27 +212,11 @@ header {
     text-align: center;
     font-family: "Poppins", sans-serif;
     font-size: calc(0.8rem + 1.2vw);
-    font-weight: 400;
+    font-weight: 300;
     padding: 0 5vw;
   }
-  & lead {
-    position: absolute;
-    color: var(--dark);
-    font-weight: 400;
-    font-family: "Poppins", sans-serif;
-    text-decoration: inherit;
-    color: inherit;
-    margin: 0 1em;
-    text-transform: uppercase;
-    left: 5vw;
-    top: calc(100vh - 2.5em);
-    top: calc(100svh - 2.5em);
-  }
-  & span:nth-of-type(1) {
-    color: var(--accent);
-  }
   & span {
-    text-transform: lowercase;
+    color: var(--accent);
   }
   & button {
     color: var(--accent);
@@ -254,9 +236,11 @@ header {
 }
 
 #clip-about {
-  background: var(--dark);
   position: absolute;
   background-color: var(--dark);
+  & p {
+    color: var(--light);
+  }
 }
 
 .about {
@@ -268,4 +252,13 @@ header {
   justify-content: center;
   align-items: center;
   align-content: center;
+  & p {
+    line-height: 2em;
+    color: var(--dark);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: calc(0.8rem + 1.2vw);
+    font-weight: 300;
+    padding: 0 5vw;
+  }
 }
