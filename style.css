@@ -23,21 +23,22 @@ body {
 #mouse {
   z-index: 1001;
   height: calc(0.7rem + 0.5vh);
-  aspect-ratio: 1;
+  width: calc(0.7rem + 0.5vh);
   border-radius: 50%;
   border: solid 1.5vh #ee6c4d;
   position: fixed;
   translate: -50% -50%;
   pointer-events: none;
-  -webkit-transition: border 0.2s, height 0.2s;
-  -moz-transition: border 0.2s height 0.2s;
-  -o-transition: border 0.2s height 0.2s;
-  transition: border 0.2s height 0.2s;
+  -webkit-transition: border 0.2s, height 0.2s, width 0.2s;
+  -moz-transition: border 0.2s height 0.2s, width 0.2s;
+  -o-transition: border 0.2s height 0.2s, width 0.2s;
+  transition: border 0.2s height 0.2s, width 0.2s;
 }
 
 .hovered {
   border: solid 0.2em #ee6c4d !important;
   height: 5vh !important;
+  width: 5vh !important;
 }
 
 /* #mouse-blur {
@@ -138,7 +139,7 @@ nav {
   }
 }
 
-@media (width < 800px) {
+@media (width < 600px) {
   nav {
     align-items: flex-start;
     & button {
