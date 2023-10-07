@@ -174,7 +174,7 @@ header {
   z-index: 50;
   width: 100vw;
   height: 100vh;
-  height: 100dvh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
