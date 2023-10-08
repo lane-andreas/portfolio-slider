@@ -20,45 +20,45 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function createCustomCursorEffect(selector) {
-  var clip = document.querySelector(selector);
+// function createCustomCursorEffect(selector) {
+//   var clip = document.querySelector(selector);
 
-  var mouseX = 0;
-  var mouseY = 0;
-  var cursorX = 0;
-  var cursorY = 0;
+//   var mouseX = 0;
+//   var mouseY = 0;
+//   var cursorX = 0;
+//   var cursorY = 0;
 
-  function updateCursor() {
-    var dx = mouseX - cursorX;
-    var dy = mouseY - cursorY;
+//   function updateCursor() {
+//     var dx = mouseX - cursorX;
+//     var dy = mouseY - cursorY;
 
-    var lagFactor = 0.03;
+//     var lagFactor = 0.03;
 
-    cursorX += dx * lagFactor;
-    cursorY += dy * lagFactor;
+//     cursorX += dx * lagFactor;
+//     cursorY += dy * lagFactor;
 
-    clip.style.clipPath =
-      "polygon(100.1% 0%, " +
-      cursorX +
-      "px" +
-      " 0%, " +
-      cursorX +
-      "px" +
-      " 100.3%, 100.1% 100.3%)";
-    requestAnimationFrame(updateCursor);
-  }
+//     clip.style.clipPath =
+//       "polygon(100.1% 0%, " +
+//       cursorX +
+//       "px" +
+//       " 0%, " +
+//       cursorX +
+//       "px" +
+//       " 100.3%, 100.1% 100.3%)";
+//     requestAnimationFrame(updateCursor);
+//   }
 
-  document.addEventListener("mousemove", function (e) {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
+//   document.addEventListener("mousemove", function (e) {
+//     mouseX = e.clientX;
+//     mouseY = e.clientY;
+//   });
 
-  updateCursor();
-}
+//   updateCursor();
+// }
 
-createCustomCursorEffect("#clip-header");
-createCustomCursorEffect("#clip-nav");
-createCustomCursorEffect("#clip-about");
+// createCustomCursorEffect("#clip-header");
+// createCustomCursorEffect("#clip-nav");
+// createCustomCursorEffect("#clip-about");
 
 function menuToggle() {
   var links = document.querySelectorAll("nav a");
@@ -69,4 +69,26 @@ function menuToggle() {
       link.classList.add("menu-open");
     }
   });
+}
+
+function flipToggle() {
+  const header = document.getElementById("clip-header");
+  const nav = document.getElementById("clip-nav");
+  const about = document.getElementById("clip-about");
+
+  // Check the current clip-path value of header
+  const currentClipPath =
+    header.style.clipPath || getComputedStyle(header).clipPath;
+
+  if (currentClipPath === "polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%)") {
+    // If it's the initial value, toggle to the new value
+    header.style.clipPath = "polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%)";
+    nav.style.clipPath = "polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%)";
+    about.style.clipPath = "polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%)";
+  } else {
+    // If it's the new value, toggle back to the initial value
+    header.style.clipPath = "polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%)";
+    nav.style.clipPath = "polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%)";
+    about.style.clipPath = "polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%)";
+  }
 }
