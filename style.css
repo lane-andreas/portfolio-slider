@@ -19,6 +19,7 @@ input {
 }
 
 html {
+  scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 body {
@@ -191,6 +192,8 @@ nav {
 }
 
 header {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   z-index: 50;
   width: 100vw;
   height: 100vh;
@@ -244,6 +247,8 @@ header {
 }
 
 .about {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   width: 100vw;
   min-height: 100vh;
   min-height: 100svh;
@@ -253,6 +258,7 @@ header {
   align-items: center;
   align-content: center;
   & p {
+    max-width: 50ch;
     line-height: 2em;
     color: var(--dark);
     text-align: center;
