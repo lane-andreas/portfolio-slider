@@ -29,3 +29,16 @@
     opacity: 0;
   }
 }
+
+@keyframes body {
+  0%,
+  99% {
+    height: 100vh;
+    height: 100svh;
+    overflow-y: clip;
+  }
+  100% {
+    height: unset;
+    overflow-y: unset;
+  }
+}

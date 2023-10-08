@@ -24,6 +24,7 @@ html {
 body {
   position: relative;
   overflow-x: clip;
+  animation: body 3.5s forwards;
 }
 
 ::-webkit-scrollbar {
@@ -74,7 +75,7 @@ body {
   align-items: center;
   inset: 0;
   font-size: calc(1rem + 0.5vw);
-  animation: loader 1s 3s forwards;
+  animation: loader 0.5s 3s forwards;
   & img {
     opacity: 1;
     height: min(30vw, 30vh);
@@ -118,7 +119,7 @@ body {
 #clip-header,
 #clip-nav,
 #clip-about {
-  transition: 1s ease;
+  transition: clip-path 1s ease;
   clip-path: polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%);
 }
 
@@ -152,7 +153,6 @@ nav {
     color: inherit;
     margin: 0 1em;
     text-transform: uppercase;
-    transition: 0.2s;
   }
   .nav-links {
     display: flex;
@@ -192,11 +192,34 @@ nav {
       align-items: flex-end;
       gap: 0.5em;
     }
-    & a {
+    & a:nth-of-type(1) {
       translate: 200% 0;
+      transition: 0.2s;
     }
-    .menu-open {
-      translate: 0 0;
+    & a:nth-of-type(2) {
+      translate: 200% 0;
+      transition: 0.3s;
+    }
+    & a:nth-of-type(3) {
+      translate: 200% 0;
+      transition: 0.4s;
+    }
+    & a:nth-of-type(4) {
+      translate: 200% 0;
+      transition: 0.5s;
+    }
+
+    .menu-open:nth-of-type(1) {
+      translate: 0 0 !important;
+    }
+    .menu-open:nth-of-type(2) {
+      translate: -45vw 0 !important;
+    }
+    .menu-open:nth-of-type(3) {
+      translate: -15vw 0 !important;
+    }
+    .menu-open:nth-of-type(4) {
+      translate: -65vw 0 !important;
     }
   }
 }
@@ -209,9 +232,13 @@ nav {
   p {
     color: var(--light);
   }
+  & button:nth-of-type(2) {
+    color: var(--dark);
+  }
 }
 
 header {
+  background-color: var(--light);
   z-index: 50;
   width: 100vw;
   height: 100vh;
@@ -239,6 +266,10 @@ header {
   & span {
     color: var(--accent);
   }
+  & div {
+    position: sticky;
+    top: 0;
+  }
   & button {
     color: var(--accent);
     text-align: center;
@@ -254,9 +285,15 @@ header {
     text-transform: uppercase;
     transition: 0.2s;
   }
+  & button:nth-of-type(2) {
+    color: var(--light);
+
+    background-color: var(--accent);
+  }
 }
 
 #clip-about {
+  z-index: 51;
   position: absolute;
   background-color: var(--dark);
   & p {
@@ -265,6 +302,9 @@ header {
 }
 
 .about {
+  position: relative;
+  z-index: 50;
+  background-color: var(--light);
   width: 100vw;
   min-height: 100vh;
   min-height: 100svh;
@@ -273,6 +313,9 @@ header {
   justify-content: center;
   align-items: center;
   align-content: center;
+  & span {
+    color: var(--accent);
+  }
   & p {
     max-width: 50ch;
     line-height: 2em;
@@ -283,4 +326,43 @@ header {
     font-weight: 300;
     padding: 0 5vw;
   }
+  .about-tags-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  & lead {
+    writing-mode: vertical-rl;
+    padding: 1em;
+    position: sticky;
+    top: 0;
+    opacity: 0.1;
+    color: var(--accent);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: calc(2rem + 2vw);
+    font-weight: 1000;
+  }
+  & lead:nth-of-type(1) {
+    margin-bottom: -50vh;
+  }
+  & lead:nth-of-type(2) {
+    margin-top: -50vh;
+    rotate: 180deg;
+  }
+  & lead:nth-of-type(3) {
+    margin-bottom: -30vh;
+  }
+  & lead:nth-of-type(4) {
+    margin-top: -10vh;
+    rotate: 180deg;
+  }
+}
+
+.clients {
+  height: 100vh;
+  width: 100vw;
 }
