@@ -19,82 +19,67 @@
     <meta name="theme-color" content="#ffffff" />
   </head>
   <body ontouchstart="">
-    <button id="flip-button" onclick="flipToggle()">flip</button>
     <div id="mouse"></div>
     <div id="loader" aria-hidden="true">
       <img src="imgs/logo.png" alt="" />
       <div class="bar"></div>
       <p>a pretty cool portfolio</p>
     </div>
-    <nav id="clip-nav">
-      <img src="imgs/dark-logo.png" alt="" />
-      <div class="nav-links">
-        <button id="menu-button" onclick="menuToggle()">
-          <iconify-icon icon="bi:list-nested"></iconify-icon>
-        </button>
-        <a href="#about">about</a><a href="">clients</a><a href="">projects</a
-        ><a href="">contact</a>
+    <nav class="clip-section">
+      <img src="imgs/dark-logo.png" alt="logo" />
+      <button onclick="menuToggle()">MENU</button>
+      <div class="nav-list">
+        <a onclick="menuToggle()" href="#about">about</a
+        ><a onclick="menuToggle()" href="#clients">clients</a
+        ><a onclick="menuToggle()" href="#projects">projects</a
+        ><a onclick="menuToggle()" href="#contact">contact</a>
       </div>
     </nav>
     <nav>
-      <img src="imgs/logo.png" alt="" />
-      <div class="nav-links">
-        <button id="menu-button" onclick="menuToggle()">
-          <iconify-icon icon="bi:list-nested"></iconify-icon>
-        </button>
-        <a href="#about">about</a><a href="">clients</a><a href="">projects</a
-        ><a href="">contact</a>
+      <img src="imgs/logo.png" alt="logo" />
+      <button onclick="menuToggle()">MENU</button>
+      <div class="nav-list">
+        <a onclick="menuToggle()" href="#about">about</a
+        ><a onclick="menuToggle()" href="#clients">clients</a
+        ><a onclick="menuToggle()" href="#projects">projects</a
+        ><a onclick="menuToggle()" href="#contact">contact</a>
       </div>
     </nav>
-    <header id="clip-header">
-      <h1>DESIGNER</h1>
-      <p>giving <span>life</span> to your work</p>
-      <div><button>download cv</button><button>let's talk</button></div>
+    <header class="clip-section">
+      <div class="container">
+        <p>giving <span>life</span></p>
+
+        <img
+          src="imgs/dark-arrows.png"
+          alt=""
+          onclick="flipToggle()"
+          id="flip"
+        />
+
+        <p>to your work.</p>
+      </div>
+      <div class="container">
+        <div class="buttons">
+          <button onclick="CV()">download cv</button><button>let's talk</button>
+        </div>
+        <h1>designer</h1>
+      </div>
     </header>
     <header>
-      <h1>DEVELOPER</h1>
-      <p>bringing <span>functionality</span> to your ideas</p>
-      <div><button>download cv</button><button>let's talk</button></div>
+      <div class="container">
+        <p>bringing <span>functionality</span></p>
+
+        <img src="imgs/arrows.png" alt="" onclick="flipToggle()" id="flip" />
+
+        <p>to your ideas.</p>
+      </div>
+      <div class="container">
+        <div class="buttons">
+          <button onclick="CV()">download cv</button><button>let's talk</button>
+        </div>
+        <h1>developer</h1>
+      </div>
     </header>
-    <section class="about" id="clip-about">
-      <div class="about-deco">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="about-deco">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <p>
-        I love design, and it shows in my work. Using <span>Figma</span> to
-        plan, <span>Adobe Express</span> to illustrate, and
-        <span>Chat GPT</span> to... assist, I deliver simple yet impacting
-        layouts. My passion comes with strong <span>UI/UX</span> elements and
-        minimal designs.
-      </p>
-    </section>
-    <section class="about" id="about">
-      <div class="about-deco">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="about-deco">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <p>
-        I started coding in college, and I've loved it ever since. As a junior
-        developer, I have skills in <span>HTML</span>, <span>CSS</span>,
-        <span>Javascipt</span>, as well as efficient code and team
-        <span>collaboration</span>. My scripts deliver creative solutions to
-        your problems.
-      </p>
-    </section>
-    <section class="clients"></section>
     <script src="script.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
   </body>

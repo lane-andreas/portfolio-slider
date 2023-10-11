@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cursor.style.left = x + "px";
     cursor.style.top = y + "px";
 
-    var links = document.querySelectorAll("a, button");
+    var links = document.querySelectorAll("a, button, #flip");
     links.forEach(function (link) {
       link.addEventListener("mouseenter", function () {
         cursor.classList.add("hovered");
@@ -20,75 +20,56 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// function createCustomCursorEffect(selector) {
-//   var clip = document.querySelector(selector);
-
-//   var mouseX = 0;
-//   var mouseY = 0;
-//   var cursorX = 0;
-//   var cursorY = 0;
-
-//   function updateCursor() {
-//     var dx = mouseX - cursorX;
-//     var dy = mouseY - cursorY;
-
-//     var lagFactor = 0.03;
-
-//     cursorX += dx * lagFactor;
-//     cursorY += dy * lagFactor;
-
-//     clip.style.clipPath =
-//       "polygon(100.1% 0%, " +
-//       cursorX +
-//       "px" +
-//       " 0%, " +
-//       cursorX +
-//       "px" +
-//       " 100.3%, 100.1% 100.3%)";
-//     requestAnimationFrame(updateCursor);
-//   }
-
-//   document.addEventListener("mousemove", function (e) {
-//     mouseX = e.clientX;
-//     mouseY = e.clientY;
-//   });
-
-//   updateCursor();
-// }
-
-// createCustomCursorEffect("#clip-header");
-// createCustomCursorEffect("#clip-nav");
-// createCustomCursorEffect("#clip-about");
-
 function menuToggle() {
-  var links = document.querySelectorAll("nav a");
-  links.forEach(function (link) {
-    if (link.classList.contains("menu-open")) {
-      link.classList.remove("menu-open");
+  var nav = document.querySelectorAll(".nav-list");
+  nav.forEach(function (item) {
+    if (item.classList.contains("menu-open")) {
+      item.classList.remove("menu-open");
     } else {
-      link.classList.add("menu-open");
+      item.classList.add("menu-open");
     }
   });
 }
 
 function flipToggle() {
-  const header = document.getElementById("clip-header");
-  const nav = document.getElementById("clip-nav");
-  const about = document.getElementById("clip-about");
+  const clip = document.querySelectorAll(".clip-section");
+  clip.forEach(function (section) {
+    // Check the current clip-path value of header
+    const currentClipPath =
+      section.style.clipPath || getComputedStyle(section).clipPath;
 
-  // Check the current clip-path value of header
-  const currentClipPath =
-    header.style.clipPath || getComputedStyle(header).clipPath;
+    if (currentClipPath === "polygon(100% 0%, 100% 200%, 100% 200%, 100% 0%)") {
+      // If it's the initial value, toggle to the new value
+      section.style.clipPath = "polygon(100% 0%, 100% 200%, 0% 200%, 0% 0%)";
+    } else {
+      // If it's the new value, toggle back to the initial value
+      section.style.clipPath =
+        "polygon(100% 0%, 100% 200%, 100% 200%, 100% 0%)";
+    }
+  });
+}
 
-  if (currentClipPath === "polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%)") {
-    // If it's the initial value, toggle to the new value
-    header.style.clipPath = "polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%)";
-    nav.style.clipPath = "polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%)";
-    about.style.clipPath = "polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%)";
-  } else {
-    // If it's the new value, toggle back to the initial value
-    header.style.clipPath = "polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%)";
-    nav.style.clipPath = "polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%)";
-    about.style.clipPath = "polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%)";
-  }
+const scrollElements = document.querySelectorAll(".scroll");
+
+// Add event listener for scroll
+window.addEventListener("scroll", scrollHandler);
+
+// Function to handle scroll event
+function scrollHandler() {
+  scrollElements.forEach((element) => {
+    // Calculate the distance of the element from the top of the viewport
+    const distanceToTop = element.getBoundingClientRect().top;
+
+    // Check if the element is within the viewport
+    if (distanceToTop < window.innerHeight / 1.5) {
+      element.classList.add("animate");
+    }
+  });
+}
+
+// Trigger initial animation on page load
+scrollHandler();
+
+function CV() {
+  alert("Coming soon! For now, take a look at my projects...");
 }

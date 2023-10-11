@@ -1,12 +1,3 @@
-@keyframes mouse-blur {
-  0% {
-    rotate: 0;
-  }
-  100% {
-    rotate: 360deg;
-  }
-}
-
 @keyframes bar {
   0%,
   100% {
@@ -40,5 +31,17 @@
   100% {
     height: unset;
     overflow-y: unset;
+  }
+}
+
+@keyframes slide {
+  100% {
+    translate: 0;
+  }
+}
+
+@keyframes spin {
+  100% {
+    rotate: 360deg;
   }
 }
