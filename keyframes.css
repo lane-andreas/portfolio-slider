@@ -45,3 +45,12 @@
     rotate: 360deg;
   }
 }
+
+.spin {
+  rotate: -360deg;
+}
+
+.animate {
+  opacity: 1 !important;
+  translate: 0 !important;
+}

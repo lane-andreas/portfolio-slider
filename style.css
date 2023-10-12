@@ -107,14 +107,12 @@ body {
     text-transform: uppercase;
   }
 }
-#flip-button {
-  display: none;
-}
+
 .clip-section {
   z-index: 500;
   position: absolute;
   background-color: var(--dark);
-  color: var(--light);
+  color: var(--light) !important;
   transition: clip-path 1s ease;
   clip-path: polygon(100% 0%, 100% 200%, 100% 200%, 100% 0%);
 }
@@ -244,6 +242,7 @@ header {
     height: 4em;
     aspect-ratio: initial;
     animation: spin 1s 6.5s;
+    transition: rotate 1s;
   }
   .container:nth-of-type(2) {
     display: flex;
@@ -300,6 +299,59 @@ header:nth-of-type(1) {
     .container:nth-of-type(1) {
       letter-spacing: 1vw;
       padding: 0 1em;
+    }
+  }
+}
+
+.about {
+  padding-top: 50vh;
+  line-height: 2em;
+  font-size: var(--medium);
+  font-weight: var(--thin);
+  color: var(--dark);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 100vh;
+  & span {
+    color: var(--accent);
+  }
+  & div {
+    transition: 1s;
+    opacity: 0;
+    translate: 0 2em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    height: 100vh;
+  }
+  & div > * {
+    position: sticky;
+    top: 40vh;
+  }
+  .mar5 {
+    margin-left: 5ch;
+  }
+  .mar10 {
+    margin-left: 10ch;
+  }
+  .mar15 {
+    margin-left: 15ch;
+  }
+}
+
+@media (width < 800px) {
+  .about {
+    .mar5 {
+      margin-left: 3ch;
+    }
+    .mar10 {
+      margin-left: 6ch;
+    }
+    .mar15 {
+      margin-left: 9ch;
     }
   }
 }

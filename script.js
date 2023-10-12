@@ -61,7 +61,7 @@ function scrollHandler() {
     const distanceToTop = element.getBoundingClientRect().top;
 
     // Check if the element is within the viewport
-    if (distanceToTop < window.innerHeight / 1.5) {
+    if (distanceToTop < window.innerHeight / 1.6) {
       element.classList.add("animate");
     }
   });
@@ -72,4 +72,15 @@ scrollHandler();
 
 function CV() {
   alert("Coming soon! For now, take a look at my projects...");
+}
+
+function spin() {
+  var spin = document.querySelectorAll(".flip");
+  spin.forEach(function (item) {
+    if (item.classList.contains("spin")) {
+      item.classList.remove("spin");
+    } else {
+      item.classList.add("spin");
+    }
+  });
 }
