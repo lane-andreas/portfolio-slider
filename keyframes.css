@@ -20,26 +20,6 @@
     opacity: 0;
   }
 }
-
-@keyframes body {
-  0%,
-  99% {
-    height: 100vh;
-    height: 100svh;
-    overflow-y: clip;
-  }
-  100% {
-    height: unset;
-    overflow-y: unset;
-  }
-}
-
-@keyframes slide {
-  100% {
-    translate: 0;
-  }
-}
-
 @keyframes spin {
   100% {
     rotate: 360deg;
@@ -50,7 +30,41 @@
   rotate: -360deg;
 }
 
-.animate {
-  opacity: 1 !important;
-  translate: 0 !important;
+/* @keyframes clipOut {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  50%,
+  100% {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+  }
+}
+
+@keyframes clipIn {
+  0%,
+  50% {
+    clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+} */
+
+@keyframes clipOut {
+  0% {
+    translate: 0;
+  }
+
+  100% {
+    translate: -100%;
+  }
+}
+
+@keyframes clipIn {
+  0% {
+    translate: 100%;
+  }
+  100% {
+    translate: 0;
+  }
 }

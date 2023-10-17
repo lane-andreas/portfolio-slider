@@ -20,67 +20,44 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function menuToggle() {
-  var nav = document.querySelectorAll(".nav-list");
-  nav.forEach(function (item) {
-    if (item.classList.contains("menu-open")) {
-      item.classList.remove("menu-open");
+function toggleFlip(part) {
+  var text = document.querySelectorAll(part);
+  text.forEach(function (box) {
+    if (box.classList.contains("flip-content")) {
+      // If the box has the class, remove it
+      box.classList.remove("flip-content");
     } else {
-      item.classList.add("menu-open");
+      // If the box doesn't have the class, add it
+      box.classList.add("flip-content");
     }
   });
 }
 
-function flipToggle() {
-  const clip = document.querySelectorAll(".clip-section");
-  clip.forEach(function (section) {
-    // Check the current clip-path value of header
-    const currentClipPath =
-      section.style.clipPath || getComputedStyle(section).clipPath;
+const sections = document.querySelectorAll("section");
+let currentSectionIndex = 0;
+let isAnimating = false;
 
-    if (currentClipPath === "polygon(100% 0%, 100% 200%, 100% 200%, 100% 0%)") {
-      // If it's the initial value, toggle to the new value
-      section.style.clipPath = "polygon(100% 0%, 100% 200%, 0% 200%, 0% 0%)";
-    } else {
-      // If it's the new value, toggle back to the initial value
-      section.style.clipPath =
-        "polygon(100% 0%, 100% 200%, 100% 200%, 100% 0%)";
-    }
-  });
+const buttons = document.querySelectorAll(".nav-buttons button");
+let currentButtonIndex = 0;
+
+function scrollSection(index) {
+  if (isAnimating) return;
+  if (index === currentSectionIndex) return;
+
+  isAnimating = true;
+
+  sections[currentSectionIndex].style.animation = "clipOut 1s forwards";
+  currentSectionIndex = index;
+  sections[currentSectionIndex].style.animation = "clipIn 1s forwards";
+  buttonColor(index);
+
+  setTimeout(() => {
+    isAnimating = false;
+  }, 800);
 }
 
-const scrollElements = document.querySelectorAll(".scroll");
-
-// Add event listener for scroll
-window.addEventListener("scroll", scrollHandler);
-
-// Function to handle scroll event
-function scrollHandler() {
-  scrollElements.forEach((element) => {
-    // Calculate the distance of the element from the top of the viewport
-    const distanceToTop = element.getBoundingClientRect().top;
-
-    // Check if the element is within the viewport
-    if (distanceToTop < window.innerHeight / 1.6) {
-      element.classList.add("animate");
-    }
-  });
-}
-
-// Trigger initial animation on page load
-scrollHandler();
-
-function CV() {
-  alert("Coming soon! For now, take a look at my projects...");
-}
-
-function spin() {
-  var spin = document.querySelectorAll(".flip");
-  spin.forEach(function (item) {
-    if (item.classList.contains("spin")) {
-      item.classList.remove("spin");
-    } else {
-      item.classList.add("spin");
-    }
-  });
+function buttonColor(index) {
+  buttons[currentButtonIndex].style.color = "var(--dark)";
+  currentButtonIndex = index;
+  buttons[currentButtonIndex].style.color = "var(--accent)";
 }

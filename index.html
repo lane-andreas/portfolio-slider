@@ -23,120 +23,125 @@
     <div id="loader" aria-hidden="true">
       <img src="imgs/logo.png" alt="" />
       <div class="bar"></div>
-      <p>a pretty cool portfolio</p>
     </div>
-    <nav class="clip-section">
-      <img src="imgs/dark-logo.png" alt="logo" />
-      <button onclick="menuToggle()">MENU</button>
-      <div class="nav-list">
-        <a onclick="menuToggle()" href="#about">about</a
-        ><a onclick="menuToggle()" href="#clients">clients</a
-        ><a onclick="menuToggle()" href="#projects">projects</a
-        ><a onclick="menuToggle()" href="#contact">contact</a>
-      </div>
-    </nav>
     <nav>
-      <img src="imgs/logo.png" alt="logo" />
-      <button onclick="menuToggle()">MENU</button>
-      <div class="nav-list">
-        <a onclick="menuToggle()" href="#about">about</a
-        ><a onclick="menuToggle()" href="#clients">clients</a
-        ><a onclick="menuToggle()" href="#projects">projects</a
-        ><a onclick="menuToggle()" href="#contact">contact</a>
+      <button class="flip-button" onclick="toggleFlip('.flip-class')">
+        FLIP
+      </button>
+      <div class="nav-buttons">
+        <button onclick="scrollSection(0)">HOME</button>
+        <button onclick="scrollSection(1)">ABOUT</button
+        ><button onclick="scrollSection(2)">CLIENTS</button
+        ><button onclick="scrollSection(3)">PROJECTS</button
+        ><button onclick="scrollSection(4)">CONTACT</button>
       </div>
     </nav>
-    <header class="clip-section">
-      <div class="container">
-        <p>giving <span>life</span></p>
-
-        <img
-          src="imgs/dark-arrows.png"
-          alt=""
-          onclick="flipToggle(), spin()"
-          class="flip"
-        />
-
-        <p>to your work.</p>
-      </div>
-      <div class="container">
-        <div class="buttons">
-          <button onclick="CV()">download cv</button><button>let's talk</button>
+    <section id="home">
+      <div class="title">
+        <div class="flip-box">
+          <h1 class="flip-class">DEVELOPER</h1>
+          <h1 class="flip-class flip-over">DESIGNER</h1>
         </div>
-        <h1>designer</h1>
-      </div>
-    </header>
-    <header>
-      <div class="container">
-        <p>bringing <span>functionality</span></p>
-
-        <img
-          src="imgs/arrows.png"
-          alt=""
-          onclick="flipToggle(), spin()"
-          class="flip"
-        />
-
-        <p>to your ideas.</p>
-      </div>
-      <div class="container">
-        <div class="buttons">
-          <button onclick="CV()">download cv</button><button>let's talk</button>
+        <div class="header-buttons">
+          <button onclick="toggleFlip('.flip-class-cv')" class="flip-box">
+            <p class="flip-class-cv">DOWNLOAD CV</p>
+            <p class="flip-class-cv flip-over">COMING SOON</p>
+          </button>
+          <button onclick="scrollSection(4)">LET'S TALK</button>
         </div>
-        <h1>developer</h1>
       </div>
-    </header>
-    <section class="about clip-section">
-      <div class="scroll">
-        <p>
-          I love design<br /><lead class="mar5">and it shows in my work.</lead>
+    </section>
+    <section id="about">
+      <div class="flip-box">
+        <p class="flip-class">
+          I started coding in college, and I've loved it ever since.
+        </p>
+        <p class="flip-class flip-over">
+          I love design, and it shows in my work.
         </p>
       </div>
-
-      <div class="scroll">
-        <p>
-          <lead class="mar5">Using</lead><br /><span>Figma</span>,
-          <span>Adobe Express</span>, <span>Chat GPT</span><br /><lead
-            class="mar10"
-            >I deliver simple yet impacting layouts.</lead
-          >
+      <div class="flip-box">
+        <p class="flip-class delay1">
+          I'm skilled with HTML, CSS, and Javascript, as well as Bootstrap,
+          Tailwind, and React.
+        </p>
+        <p class="flip-class flip-over delay1">
+          I work with Figma, Adobe Express, and Chat GPT to bring my ideas to
+          life.
         </p>
       </div>
-
-      <div class="scroll">
-        <p>
-          My passion comes with<br /><lead class="mar10"
-            >strong UI/UX elements</lead
-          ><br /><lead class="mar5">and minimal layouts.</lead>
+      <div class="flip-box">
+        <p class="flip-class delay2">
+          I work well with groups, and create clean code.
+        </p>
+        <p class="flip-class flip-over delay2">
+          I strive for originality and clean layouts.
         </p>
       </div>
     </section>
-    <section class="about">
-      <div class="scroll">
-        <p>
-          I started coding in college<br /><lead class="mar10"
-            >and I've loved it ever since.</lead
-          >
+    <section id="clients">
+      <div class="flip-box">
+        <p class="flip-class">
+          I work with my clients through every step, ensuring a complete
+          product.
+        </p>
+        <p class="flip-class flip-over">
+          I let your ideas shine, giving your site personality and charm.
         </p>
       </div>
+      <div class="windows">
+        <a href="https://exclusivelyknb.com/" target="_blank"
+          ><img src="imgs/exclusively.png" alt="" /></a
+        ><a href="https://jeffsplumbingservices.com/"
+          ><img src="imgs/jeff.png" alt=""
+        /></a>
+      </div>
+    </section>
+    <section id="projects"></section>
+    <section id="contact">
+      <div class="flip-box">
+        <p class="flip-class">
+          Contact me for development questions, comments, or work inquiries.
+        </p>
+        <p class="flip-class flip-over">
+          Contact me for design questions, comments, or work inquiries.
+        </p>
+      </div>
+      <form
+        action="https://formsubmit.co/laaaandreas@gmail.com"
+        method="POST"
+        aria-label="contact form"
+      >
+        <input
+          type="text"
+          name="name"
+          id="name"
+          autocomplete="name"
+          placeholder="Name"
+          aria-label="Your name here"
+          required
+        />
 
-      <div class="scroll">
-        <p>
-          I have skills<br /><lead class="mar5"
-            ><span>HTML</span>, <span>CSS</span>, <span>Javascipt</span></lead
-          ><br /><lead class="mar10">as well as efficient code</lead><br /><lead
-            class="mar5"
-            >and team collaboration.</lead
-          >
-        </p>
-      </div>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          autocomplete="email"
+          placeholder="Email"
+          aria-label="Your email here"
+          required
+        />
 
-      <div class="scroll">
-        <p>
-          My scripts deliver solutions<br /><lead class="mar15"
-            >to your problems.</lead
-          >
-        </p>
-      </div>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Message"
+          aria-label="Your message or request here"
+          required
+        ></textarea>
+        <button type="submit" aria-label="Send form">Send</button>
+      </form>
     </section>
     <script src="script.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
