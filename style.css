@@ -5,13 +5,6 @@
 * Browsers: last 4 version
 */
 
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
-
 :root {
   --accent: #ee6c4d;
   --light: #ffffff;
@@ -375,9 +368,10 @@ nav {
       justify-content: space-around;
     }
     .flip-button {
+      left: 0;
       text-align: left;
       width: 100vw;
-      padding: 2em 0;
+      padding: 2em 5vw;
       position: fixed;
       bottom: calc(100vh - 5em);
       bottom: calc(100svh - 5em);
