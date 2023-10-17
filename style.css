@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 :root {
   --accent: #ee6c4d;
   --light: #ffffff;
@@ -13,6 +20,7 @@
 * {
   padding: 0;
   margin: 0;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 body,
@@ -39,7 +47,8 @@ body {
   position: relative;
   overflow-x: clip;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100svh;
   font-size: var(--small);
   font-weight: var(--thin);
 }
@@ -58,8 +67,8 @@ body {
   translate: -50% -50%;
   pointer-events: none;
   -webkit-transition: border 0.2s, height 0.2s, width 0.2s;
-  -moz-transition: border 0.2s height 0.2s, width 0.2s;
   -o-transition: border 0.2s height 0.2s, width 0.2s;
+  -webkit-transition: border 0.2s height 0.2s, width 0.2s;
   transition: border 0.2s height 0.2s, width 0.2s;
 }
 
@@ -73,12 +82,22 @@ body {
   background-color: var(--light);
   z-index: 1000;
   position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   inset: 0;
-  font-size: calc(1rem + 0.5vw);
+  font-size: var(--medium);
+  -webkit-animation: clipOut 0.8s 3s forwards;
   animation: clipOut 0.8s 3s forwards;
   & img {
     opacity: 1;
@@ -96,10 +115,8 @@ body {
     inset: 0;
     position: absolute;
     background-color: var(--dark);
+    -webkit-animation: bar 2s 1s infinite;
     animation: bar 2s 1s infinite;
-  }
-  & p {
-    text-transform: uppercase;
   }
 }
 
@@ -118,22 +135,36 @@ body {
 }
 
 #home {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-animation: clipIn 0.8s 3s forwards;
   animation: clipIn 0.8s 3s forwards;
   position: absolute;
   background-color: var(--light);
   width: 100vw;
   height: 100vh;
+  height: 100svh;
   & h1 {
     font-size: var(--large);
     font-weight: var(--light);
   }
   .header-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 3em;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
 }
@@ -142,28 +173,42 @@ section {
   position: absolute;
   width: 100vw;
   min-height: 100vh;
+  min-height: 100svh;
   background-color: var(--light);
+  -webkit-animation: clipOut 0.8s forwards;
   animation: clipOut 0.8s forwards;
 }
 
 nav {
   background-color: var(--light);
+  -webkit-animation: clipIn 0.8s 3s forwards;
   animation: clipIn 0.8s 3s forwards;
   z-index: 500;
   padding: 0 5vw;
   height: 15vh;
+  height: 15svh;
   width: 100vw;
   position: fixed;
   bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   .nav-buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 1em;
   }
   & button {
+    -webkit-transition: color 0.5s;
+    -o-transition: color 0.5s;
     transition: color 0.5s;
   }
   & button:nth-of-type(1) {
@@ -172,23 +217,37 @@ nav {
 }
 
 #about {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 5vh;
+  gap: 5svh;
   padding: 3em;
 }
 
 .flip-class,
 .flip-class-cv {
   text-align: center;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
   width: 100%;
 }
 .flip-over {
   text-align: center;
   width: 100%;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
   position: absolute;
 }
@@ -201,25 +260,47 @@ nav {
 }
 
 .delay1 {
+  -webkit-transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
 .delay2 {
+  -webkit-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
   transition-delay: 0.2s;
 }
 
 #contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 3em;
   & p {
     padding: 0 3em;
   }
   & form {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 1em;
   }
@@ -233,7 +314,25 @@ nav {
   & form button {
     padding: 0.5em 1em;
 
+    -ms-flex-item-align: end;
+
     align-self: flex-end;
+  }
+  ::-webkit-input-placeholder {
+    color: var(--dark);
+    opacity: 1; /* Firefox */
+  }
+  ::-moz-placeholder {
+    color: var(--dark);
+    opacity: 1; /* Firefox */
+  }
+  :-ms-input-placeholder {
+    color: var(--dark);
+    opacity: 1; /* Firefox */
+  }
+  ::-ms-input-placeholder {
+    color: var(--dark);
+    opacity: 1; /* Firefox */
   }
   ::placeholder {
     color: var(--dark);
@@ -255,6 +354,7 @@ nav {
     .nav-buttons {
       width: 100%;
       gap: 0;
+      -ms-flex-pack: distribute;
       justify-content: space-around;
     }
     .flip-button {
@@ -262,18 +362,29 @@ nav {
       width: 100vw;
       height: 10vh;
       position: fixed;
-      bottom: calc(90vh);
+      bottom: 90vh;
+      height: 10svh;
+      bottom: 90svh;
     }
   }
   #clients {
     padding-top: 10vh;
     padding-bottom: 15vh;
+    padding-top: 10svh;
+    padding-bottom: 15svh;
     .windows {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
       gap: 1em;
     }
     & img {
+      -webkit-transition: opacity 0.2s;
+      -o-transition: opacity 0.2s;
       transition: opacity 0.2s;
       width: 80vw !important;
     }
@@ -284,16 +395,29 @@ nav {
 }
 
 #clients {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 3em;
   .windows {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 1em;
   }
   & img {
+    -webkit-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
     transition: opacity 0.2s;
     width: 20vw;
   }
