@@ -5,6 +5,13 @@
 * Browsers: last 4 version
 */
 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 :root {
   --accent: #ee6c4d;
   --light: #ffffff;
@@ -259,6 +266,8 @@ nav {
 .flip-box {
   position: relative;
   overflow: clip;
+  -webkit-box-flex: 0;
+  -ms-flex: none;
   flex: none;
 }
 
@@ -371,6 +380,7 @@ nav {
       padding: 2em 0;
       position: fixed;
       bottom: calc(100vh - 5em);
+      bottom: calc(100svh - 5em);
     }
   }
   #clients {
@@ -380,7 +390,10 @@ nav {
       -ms-flex-direction: column;
       flex-direction: column;
       gap: 1em;
+      -ms-flex-wrap: nowrap !important;
       flex-wrap: nowrap !important;
+      -webkit-box-pack: start !important;
+      -ms-flex-pack: start !important;
       justify-content: flex-start !important;
     }
     & img {
@@ -417,8 +430,13 @@ nav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 1em;
   }
