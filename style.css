@@ -45,10 +45,10 @@ body {
   color: var(--dark);
   font-family: "Poppins", sans-serif;
   position: relative;
-  overflow-x: clip;
+  overflow: clip;
   width: 100vw;
-  min-height: 100vh;
-  min-height: 100svh;
+  height: 100vh;
+  height: 100svh;
   font-size: var(--small);
   font-weight: var(--thin);
 }
@@ -170,10 +170,12 @@ body {
 }
 
 section {
+  padding: 15vh 0;
   position: absolute;
   width: 100vw;
-  min-height: 100vh;
-  min-height: 100svh;
+  height: 100vh;
+  height: 100svh;
+  overflow: clip;
   background-color: var(--light);
   -webkit-animation: clipOut 0.8s forwards;
   animation: clipOut 0.8s forwards;
@@ -257,6 +259,7 @@ nav {
 .flip-box {
   position: relative;
   overflow: clip;
+  flex: none;
 }
 
 .delay1 {
@@ -350,37 +353,35 @@ nav {
 }
 
 @media (width < 800px) {
+  section {
+    padding: 5em 0;
+  }
   nav {
+    height: 5em;
     .nav-buttons {
       width: 100%;
       gap: 0;
+
       -ms-flex-pack: distribute;
       justify-content: space-around;
     }
     .flip-button {
       text-align: left;
       width: 100vw;
-      height: 10vh;
+      padding: 2em 0;
       position: fixed;
-      bottom: 90vh;
-      height: 10svh;
-      bottom: 90svh;
+      bottom: calc(100vh - 5em);
     }
   }
   #clients {
-    padding-top: 10vh;
-    padding-bottom: 15vh;
-    padding-top: 10svh;
-    padding-bottom: 15svh;
     .windows {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column;
       gap: 1em;
+      flex-wrap: nowrap !important;
+      justify-content: flex-start !important;
     }
     & img {
       -webkit-transition: opacity 0.2s;
@@ -395,6 +396,7 @@ nav {
 }
 
 #clients {
+  overflow: scroll;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -409,10 +411,15 @@ nav {
   -ms-flex-align: center;
   align-items: center;
   gap: 3em;
+
   .windows {
+    overflow: scroll;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 1em;
   }
   & img {
